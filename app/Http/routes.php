@@ -15,6 +15,34 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/produk', function () {
+    return view('produk');
+});
+
+Route::get('/lemari', function () {
+    return view('lemari');
+});
+
+Route::get('/kursi', function () {
+    return view('kursi');
+});
+
+Route::get('/meja', function () {
+    return view('meja');
+});
+
+Route::get('/kasur', function () {
+    return view('kasur');
+});
+
+Route::get('/rtamu', function () {
+    return view('rtamu');
+});
+
+Route::get('/cabang', function () {
+    return view('cabang');
+});
+//slash produk itu buat nambahkan alamat buat bisa dipanggil, ngelink ke view yg dituju
 /* ================== Homepage + Admin Routes ================== */
 
 require __DIR__.'/admin_routes.php';

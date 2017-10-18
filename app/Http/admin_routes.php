@@ -72,7 +72,22 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::get(config('laraadmin.adminRoute') . '/downloadBackup/{id}', 'LA\BackupsController@downloadBackup');
 
 
-	/* ================== Pegawais ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/pegawais', 'LA\PegawaisController');
-	Route::get(config('laraadmin.adminRoute') . '/pegawai_dt_ajax', 'LA\PegawaisController@dtajax');
+
+
+	/* ================== Products ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/products', 'LA\ProductsController');
+	Route::get(config('laraadmin.adminRoute') . '/product_dt_ajax', 'LA\ProductsController@dtajax');
+
+	/* ================== Branches ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/branches', 'LA\BranchesController');
+	Route::get(config('laraadmin.adminRoute') . '/branch_dt_ajax', 'LA\BranchesController@dtajax');
+
+
+	/* ================== Product_Types ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/product_types', 'LA\Product_TypesController');
+	Route::get(config('laraadmin.adminRoute') . '/product_type_dt_ajax', 'LA\Product_TypesController@dtajax');
+
+	/* ================== Orders ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/orders', 'LA\OrdersController');
+	Route::get(config('laraadmin.adminRoute') . '/order_dt_ajax', 'LA\OrdersController@dtajax');
 });

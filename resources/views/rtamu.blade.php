@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -26,7 +27,7 @@
         <div class="header-content clearfix"> <a class="logo" href="index.html"><img src="images/logo.png" alt=""></a>
             <nav class="navigation" role="navigation">
                 <ul class="primary-nav">
-                    <li><a href="{{ url('/cabang') }}">Lokasi Cabang</a></li>
+                    <li><a href="{{ url('/produk') }}">Lokasi Cabang</a></li>
                     <li><a href="{{ url('/produk') }}">Lihat Produk</a></li>
                     <li><a href="{{ url('/login') }}">Login Admin</a></li>
                 </ul>
@@ -70,53 +71,22 @@
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Meja Kayu</h3>
-                            </div>
-                    </div>
-                    <img src="images/e.jpg" class="img-responsive" alt=""> </a> </div>
-
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Furniture Ruang tamu</h3>
-
+                            <h3>Meja Makan Set</h3>
+                            <h4>Rp. 700.000</h4>
                         </div>
                     </div>
-                    <img src="images/h.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item">  <div class="caption">
-
-                    </div>
- </div>
-
-
+                    <img src="images/makan.jpg" class="img-responsive" alt=""> </a>
+            </div>
 
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Sofa Gajah Duduk</h3>
-
+                            <h3>Ruang Tamu Set</h3>
+                            <h4>Rp. 750.000</h4>
                         </div>
                     </div>
-                    <img src="images/b.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Spring Bed</h3>
-                            </div>
-                    </div>
-                    <img src="images/d.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>czarna kawka</h3>
-                            <h4>Branding</h4>
-                        </div>
-                    </div>
-                   </a> </div>
+                    <img src="images/tamu.jpg" class="img-responsive" alt=""> </a>
+            </div>
         </div>
     </div>
 </section>

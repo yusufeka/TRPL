@@ -7,7 +7,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePegawaisTable extends Migration
+class CreateJenisBarangsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,8 +19,8 @@ class CreatePegawaisTable extends Migration
         // This Module has been deleted.
         // You can remove this file after migrate:reset
         
-		if (Schema::hasTable('pegawais')) {
-            Schema::drop('pegawais');
+		if (Schema::hasTable('jenis_barangs')) {
+            Schema::drop('jenis_barangs');
         }
     }
 
@@ -31,8 +31,8 @@ class CreatePegawaisTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasTable('pegawais')) {
-            Schema::drop('pegawais');
+        if (Schema::hasTable('jenis_barangs')) {
+            Schema::drop('jenis_barangs');
         }
     }
 }

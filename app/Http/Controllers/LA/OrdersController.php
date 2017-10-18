@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Pegawai;
+use App\Models\Order;
 
-class PegawaisController extends Controller
+class OrdersController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'NoHp';
-	public $listing_cols = ['id', 'Nama', 'Email', 'NoHp', 'Alamat'];
+	public $view_col = 'tanggal';
+	public $listing_cols = ['id', 'tanggal', 'idBarang', 'jumlah'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Pegawais', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Orders', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Pegawais', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Orders', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Pegawais.
+	 * Display a listing of the Orders.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Pegawais');
+		$module = Module::get('Orders');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.pegawais.index', [
+			return View('la.orders.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new pegawai.
+	 * Show the form for creating a new order.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Store a newly created pegawai in database.
+	 * Store a newly created order in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Pegawais", "create")) {
+		if(Module::hasAccess("Orders", "create")) {
 		
-			$rules = Module::validateRules("Pegawais", $request);
+			$rules = Module::validateRules("Orders", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class PegawaisController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Pegawais", $request);
+			$insert_id = Module::insert("Orders", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.pegawais.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.orders.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Display the specified pegawai.
+	 * Display the specified order.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Pegawais", "view")) {
+		if(Module::hasAccess("Orders", "view")) {
 			
-			$pegawai = Pegawai::find($id);
-			if(isset($pegawai->id)) {
-				$module = Module::get('Pegawais');
-				$module->row = $pegawai;
+			$order = Order::find($id);
+			if(isset($order->id)) {
+				$module = Module::get('Orders');
+				$module->row = $order;
 				
-				return view('la.pegawais.show', [
+				return view('la.orders.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('pegawai', $pegawai);
+				])->with('order', $order);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("pegawai"),
+					'record_name' => ucfirst("order"),
 				]);
 			}
 		} else {
@@ -127,28 +127,28 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Show the form for editing the specified pegawai.
+	 * Show the form for editing the specified order.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Pegawais", "edit")) {			
-			$pegawai = Pegawai::find($id);
-			if(isset($pegawai->id)) {	
-				$module = Module::get('Pegawais');
+		if(Module::hasAccess("Orders", "edit")) {			
+			$order = Order::find($id);
+			if(isset($order->id)) {	
+				$module = Module::get('Orders');
 				
-				$module->row = $pegawai;
+				$module->row = $order;
 				
-				return view('la.pegawais.edit', [
+				return view('la.orders.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('pegawai', $pegawai);
+				])->with('order', $order);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("pegawai"),
+					'record_name' => ucfirst("order"),
 				]);
 			}
 		} else {
@@ -157,7 +157,7 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Update the specified pegawai in storage.
+	 * Update the specified order in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -165,9 +165,9 @@ class PegawaisController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Pegawais", "edit")) {
+		if(Module::hasAccess("Orders", "edit")) {
 			
-			$rules = Module::validateRules("Pegawais", $request, true);
+			$rules = Module::validateRules("Orders", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -175,9 +175,9 @@ class PegawaisController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Pegawais", $request, $id);
+			$insert_id = Module::updateRow("Orders", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.pegawais.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.orders.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -185,18 +185,18 @@ class PegawaisController extends Controller
 	}
 
 	/**
-	 * Remove the specified pegawai from storage.
+	 * Remove the specified order from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Pegawais", "delete")) {
-			Pegawai::find($id)->delete();
+		if(Module::hasAccess("Orders", "delete")) {
+			Order::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.pegawais.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.orders.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -209,11 +209,11 @@ class PegawaisController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('pegawais')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('orders')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Pegawais');
+		$fields_popup = ModuleFields::getModuleFields('Orders');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -222,7 +222,7 @@ class PegawaisController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/pegawais/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/orders/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -231,12 +231,12 @@ class PegawaisController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Pegawais", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/pegawais/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("Orders", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/orders/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Pegawais", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.pegawais.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("Orders", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.orders.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

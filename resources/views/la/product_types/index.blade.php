@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Pegawais")
-@section("contentheader_description", "Pegawais listing")
-@section("section", "Pegawais")
+@section("contentheader_title", "Product Types")
+@section("contentheader_description", "Product Types listing")
+@section("section", "Product Types")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Pegawais Listing")
+@section("htmlheader_title", "Product Types Listing")
 
 @section("headerElems")
-@la_access("Pegawais", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Pegawai</button>
+@la_access("Product_Types", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Product Type</button>
 @endla_access
 @endsection
 
@@ -45,24 +45,23 @@
 	</div>
 </div>
 
-@la_access("Pegawais", "create")
+@la_access("Product_Types", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Pegawai</h4>
+				<h4 class="modal-title" id="myModalLabel">Add Product Type</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\PegawaisController@store', 'id' => 'pegawai-add-form']) !!}
+			{!! Form::open(['action' => 'LA\Product_TypesController@store', 'id' => 'product_type-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
-					@la_input($module, 'Nama')
-					@la_input($module, 'Email')
-					@la_input($module, 'NoHp')
-					@la_input($module, 'Alamat')
+					@la_input($module, 'productType')
+					@la_input($module, 'idCat')
+					@la_input($module, 'idKayu')
 					--}}
 				</div>
 			</div>
@@ -89,7 +88,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/pegawai_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/product_type_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -99,7 +98,7 @@ $(function () {
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#pegawai-add-form").validate({
+	$("#product_type-add-form").validate({
 		
 	});
 });

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -60,63 +61,28 @@
 <!-- header content section -->
 <!-- portfolio grid section -->
 <section id="portfolio">
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
+
                 <hr class="section">
+                <h2>Pilih jenis produk:</h2>
+                <br>
+                <h3><a href="{{ url('/lemari') }}">Lemari</a></h3>
+                <h3><a href="{{ url('/kursi') }}">Kursi</a></h3>
+                <h3><a href="{{ url('/meja') }}">Meja</a></h3>
+                <h3><a href="{{ url('/kasur') }}">Kasur</a></h3>
+                <h3><a href="{{ url('/rtamu') }}">Furniture Set</a></h3>
+                <br>
+                <br>
+                <hr class="section">
+
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Meja Kayu</h3>
-                            </div>
-                    </div>
-                    <img src="images/e.jpg" class="img-responsive" alt=""> </a> </div>
 
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Furniture Ruang tamu</h3>
-
-                        </div>
-                    </div>
-                    <img src="images/h.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item">  <div class="caption">
-
-                    </div>
- </div>
-
-
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Sofa Gajah Duduk</h3>
-
-                        </div>
-                    </div>
-                    <img src="images/b.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>Spring Bed</h3>
-                            </div>
-                    </div>
-                    <img src="images/d.jpg" class="img-responsive" alt=""> </a> </div>
-
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
-                    <div class="caption">
-                        <div class="caption-content">
-                            <h3>czarna kawka</h3>
-                            <h4>Branding</h4>
-                        </div>
-                    </div>
-                   </a> </div>
         </div>
     </div>
 </section>
