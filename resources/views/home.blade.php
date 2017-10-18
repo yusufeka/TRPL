@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-md-7 col-sm-6 hero">
                 <div class="hero-content">
-                    <h1>Hasyim's<br>Furniture</h1>
+                    <h1>Hasyim's<br>Kopok</h1>
                 </div>
                 <!-- hero -->
             </div>
