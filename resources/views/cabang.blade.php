@@ -59,7 +59,12 @@
     </div>
 </section>
 <!-- header content section -->
-<!-- portfolio grid section -->
+<div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.4044699795813!2d114.15689031407989!3d-8.361812086585743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd155242b87d785%3A0xa6649272ed84ae77!2sToko+Bang+Hasyim!5e0!3m2!1sid!2sid!4v1508350914394" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7899.888484775474!2d113.75096213488771!3d-8.107160199999992!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6955093d9c74d%3A0x3ca1131f936c8cac!2sSuper+Market+Furniture+Bang+Hasyim!5e0!3m2!1sid!2sid!4v1508374359348" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63196.80987212058!2d113.75631303500977!3d-8.121772418265294!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd6bf0266a26d63%3A0xd0960866de5a57de!2sMebel+Bang+Hasyim+Kalisat!5e0!3m2!1sid!2s!4v1508374563207" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+    <!-- portfolio grid section -->
 
 <section>
     <br>
