@@ -1,73 +1,76 @@
-@extends('la.layouts.auth')
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jolly Login Form a Flat Responsive Widget Template :: w3layouts </title>
+    <!-- Meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Jolly Login Form Responsive Widget, Audio and Video players, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Meta tags -->
 
-@section('htmlheader_title')
-    Log in
-@endsection
 
-@section('content')
-<body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ url('/home') }}"><b>{{ LAConfigs::getByKey('sitename_part1') }} </b>{{ LAConfigs::getByKey('sitename_part2') }}</a>
-        </div>
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
 
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <!-- //font-awesome icons -->
+    <!--stylesheets-->
+    <link href="css/style.css" rel='stylesheet' type='text/css' media="all">
+    <!--//style sheet end here-->
 
-    <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+
+</head>
+<body>
+
+<h1>Jolly Login Form</h1>
+
+<div class="main-w3">
     <form action="{{ url('/login') }}" method="post">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email"/>
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        </div>
-        <div class="form-group has-feedback">
-            <input type="password" class="form-control" placeholder="Password" name="password"/>
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        </div>
-        <div class="row">
-            <div class="col-xs-8">
-                <div class="checkbox icheck">
-                    <label>
-                        <input type="checkbox" name="remember"> Remember Me
-                    </label>
-                </div>
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-            </div><!-- /.col -->
+        <h2><span class="fa fa-user t-w3" aria-hidden="true"></span></h2>
+        <div class="login-w3ls">
+            <div class="icons">
+
+                <input type="email" class="form-control" placeholder="Email" name="email"/>
+                <span class="fa fa-user" aria-hidden="true"></span>
+                <div class="clear"></div>
+            </div>
+            <div class="icons">
+
+                <input type="password" class="form-control" placeholder="Password" name="password"/>
+                <span class="fa fa-key" aria-hidden="true"></span>
+                <div class="clear"></div>
+            </div>
+            <div class="btnn">
+                <input type="checkbox" class="checked"><span class="span">Remember me..?</span><br>
+                <button type="submit">Login</button><br>
+                <a href="#" class="for" >Forgot password...?</a>
+            </div>
         </div>
     </form>
 
-    @include('auth.partials.social_login')
+</div>
 
-    <a href="{{ url('/password/reset') }}">I forgot my password</a><br>
-    <!--<a href="{{ url('/register') }}" class="text-center">Register a new membership</a>-->
+<div class="copy">
+    <p>&copy;2017 Jolly Login Form. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+</div>
+@include('la.layouts.partials.scripts_auth')
 
-</div><!-- /.login-box-body -->
-
-</div><!-- /.login-box -->
-
-    @include('la.layouts.partials.scripts_auth')
-
-    <script>
-        $(function () {
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-blue',
-                radioClass: 'iradio_square-blue',
-                increaseArea: '20%' // optional
-            });
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
         });
-    </script>
+    });
+</script>
 </body>
-
-@endsection
+</html>
