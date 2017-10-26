@@ -91,4 +91,50 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/orders', 'LA\OrdersController');
 	Route::get(config('laraadmin.adminRoute') . '/order_dt_ajax', 'LA\OrdersController@dtajax');
 
+
+	/* ================== Kategoris ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/kategoris', 'LA\KategorisController');
+	Route::get(config('laraadmin.adminRoute') . '/kategori_dt_ajax', 'LA\KategorisController@dtajax');
+
+	/* ================== Cats ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/cats', 'LA\CatsController');
+	Route::get(config('laraadmin.adminRoute') . '/cat_dt_ajax', 'LA\CatsController@dtajax');
+
+
+	/* ================== Barangs ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/barangs', 'LA\BarangsController');
+	Route::get(config('laraadmin.adminRoute') . '/barang_dt_ajax', 'LA\BarangsController@dtajax');
+
+
+	/* ================== Wooods ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/wooods', 'LA\WooodsController');
+	Route::get(config('laraadmin.adminRoute') . '/woood_dt_ajax', 'LA\WooodsController@dtajax');
+
+	/* ================== Status_Pengirims ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/status_pengirims', 'LA\Status_PengirimsController');
+	Route::get(config('laraadmin.adminRoute') . '/status_pengirim_dt_ajax', 'LA\Status_PengirimsController@dtajax');
+
+	/* ================== Tokos ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/tokos', 'LA\TokosController');
+	Route::get(config('laraadmin.adminRoute') . '/toko_dt_ajax', 'LA\TokosController@dtajax');
+
+	/* ================== Jabatans ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/jabatans', 'LA\JabatansController');
+	Route::get(config('laraadmin.adminRoute') . '/jabatan_dt_ajax', 'LA\JabatansController@dtajax');
+
+	/* ================== Promos ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/promos', 'LA\PromosController');
+	Route::get(config('laraadmin.adminRoute') . '/promo_dt_ajax', 'LA\PromosController@dtajax');
+
+	/* ================== Barang_Promos ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/barang_promos', 'LA\Barang_PromosController');
+	Route::get(config('laraadmin.adminRoute') . '/barang_promo_dt_ajax', 'LA\Barang_PromosController@dtajax');
+
+	/* ================== Laporans ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/laporans', 'LA\LaporansController');
+	Route::get(config('laraadmin.adminRoute') . '/laporan_dt_ajax', 'LA\LaporansController@dtajax');
+
+	/* ================== Detail_Orders ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/detail_orders', 'LA\Detail_OrdersController');
+	Route::get(config('laraadmin.adminRoute') . '/detail_order_dt_ajax', 'LA\Detail_OrdersController@dtajax');
 });
