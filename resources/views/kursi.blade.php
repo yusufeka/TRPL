@@ -71,21 +71,43 @@
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Kursi Belajar Roda</h3>
-                            <h4>Rp. 50.000</h4>
+                            <h3>Kursi Tamu Ukir</h3>
+                            <h4>Rp. 2.000.000</h4>
+                            <h4>Jati</h4>
                         </div>
                     </div>
-                    <img src="images/a.jpg" class="img-responsive" alt=""> </a>
+                    <img src="images/kursi tamu ukir.jpg" class="img-responsive" alt=""> </a>
             </div>
 
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Kursi Gajah Duduk</h3>
-                            <h4>Rp. 150.000</h4>
+                            <h3>Kursi Meja Tamu</h3>
+                            <h4>Rp. 1.800.000</h4>
+                            <h4>Jati</h4>
                         </div>
                     </div>
-                    <img src="images/b.jpg" class="img-responsive" alt=""> </a>
+                    <img src="images/kursi meja tamu.jpg" class="img-responsive" alt=""> </a>
+            </div>
+            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h3>Kursi Tamu Ukir</h3>
+                            <h4>Rp. 2.500.000</h4>
+                            <h4>Jati</h4>
+                        </div>
+                    </div>
+                    <img src="images/kursi tamu.jpg" class="img-responsive" alt=""> </a>
+            </div>
+            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h3>Kursi Santai</h3>
+                            <h4>Rp. 2.000.000</h4>
+                            <h4>Jati</h4>
+                        </div>
+                    </div>
+                    <img src="images/kursi santai.jpg" class="img-responsive" alt=""> </a>
             </div>
         </div>
     </div>

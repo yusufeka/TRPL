@@ -67,19 +67,21 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+            <div class="col-sm-6 portfolio-item"> <a href="http://127.0.0.3/produk" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
                             <h3>Meja Kayu</h3>
+                            <h4>Lihat Detail Produk</h4>
                             </div>
                     </div>
                     <img src="images/e.jpg" class="img-responsive" alt=""> </a> </div>
 
 
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+            <div class="col-sm-6 portfolio-item"> <a href="http://127.0.0.3/produk" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Furniture Ruang tamu</h3>
+                            <h3>Kursi Ruang Tamu</h3>
+                            <h4>Lihat Detail Produk</h4>
 
                         </div>
                     </div>
@@ -92,22 +94,24 @@
 
 
 
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+            <div class="col-sm-6 portfolio-item"> <a href="http://127.0.0.3/produk" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Sofa Gajah Duduk</h3>
+                            <h3>Meja Tv</h3>
+                            <h4>Lihat Detail Produk</h4>
 
                         </div>
                     </div>
-                    <img src="images/b.jpg" class="img-responsive" alt=""> </a> </div>
+                    <img src="images/lemari tv.jpg" class="img-responsive" alt=""> </a> </div>
 
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+            <div class="col-sm-6 portfolio-item"> <a href="http://127.0.0.3/produk" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Spring Bed</h3>
+                            <h3>Tempat Tidur Kayu</h3>
+                            <h4>Lihat Detail Produk</h4>
                             </div>
                     </div>
-                    <img src="images/d.jpg" class="img-responsive" alt=""> </a> </div>
+                    <img src="images/spring bed.jpg" class="img-responsive" alt=""> </a> </div>
 
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">

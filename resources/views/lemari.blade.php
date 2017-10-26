@@ -71,21 +71,45 @@
             <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Lemari merah</h3>
-                            <h4>Rp. 250.000</h4>
+                            <h3>Lemari TV </h3>
+                            <h4>Rp. 1.000.000</h4>
+                            <h4>Jati</h4>
                         </div>
                     </div>
-                    <img src="images/i.jpg" class="img-responsive" alt=""> </a>
+                    <img src="images/lemari tv1.jpg" class="img-responsive" alt=""> </a>
             </div>
 
-            <div class="col-sm-6 portfolio-item"> <a href="work-details.html" class="portfolio-link">
+            <div class="col-sm-6 portfolio-item"> <a href="" class="portfolio-link">
                     <div class="caption">
                         <div class="caption-content">
-                            <h3>Lemari Casual Coklat</h3>
-                            <h4>Rp. 200.000</h4>
+                            <h3>Lemari 3 Pintu</h3>
+                            <h4>Rp. 3.000.000</h4>
+                            <h4>Jati</h4>
                         </div>
                     </div>
-                    <img src="images/f.jpg" class="img-responsive" alt=""> </a>
+                    <img src="images/lemari 3 pintu.jpg" class="img-responsive" alt=""> </a>
+            </div>
+
+            <div class="col-sm-6 portfolio-item"> <a href="" class="portfolio-link">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h3>Lemari Pajangan</h3>
+                            <h4>Rp. 6.000.000</h4>
+                            <h4>Jati</h4>
+                        </div>
+                    </div>
+                    <img src="images/lemari pajangan.jpg" class="img-responsive" alt=""> </a>
+            </div>
+
+            <div class="col-sm-6 portfolio-item"> <a href="" class="portfolio-link">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <h3>Lemari Gajah</h3>
+                            <h4>Rp. 6.800.000</h4>
+                            <h4>Jati</h4>
+                        </div>
+                    </div>
+                    <img src="images/lemari pajang.jpg" class="img-responsive" alt=""> </a>
             </div>
         </div>
     </div>
