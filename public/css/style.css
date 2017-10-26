@@ -52,7 +52,7 @@ ul{
 }
 /*-- //Reset-Code --*/
 body {
-    background: url(../images/b1.jpg);
+    background: url(../images/decor.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -68,7 +68,7 @@ body {
    padding:1em 0em ;
    color:white;}
 .main-w3{
-	 background: url(../images/bg1.jpg);
+	background: url(../images/ini.jpg);
 	  background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -86,8 +86,8 @@ h2{text-align:center;}
     padding:0.5em 2em;
     font-size: 70px;
     letter-spacing: 3px;
-    color: #33e8ff;
-	}	
+    color: #FFFFFF;
+	}
 
 .login-w3ls{display:block;
    
@@ -103,7 +103,7 @@ h2{text-align:center;}
 	flex-basis:15%;
     height: 50px;
     display: block;
-    background: #33e8ff;
+    background: #808080;
     text-align: center;
     line-height: 50px;
     color: #000;
@@ -124,8 +124,8 @@ input[type=email],input[type=password]{
 	border-bottom: 1px solid #fff;
     background:rgba(255, 255, 255, 0.81);
 }
-input[type=email]:hover,input[type=password]:hover{border-bottom: 1px solid #33e8ff;
-border-left: 1px solid #33e8ff;
+input[type=email]:hover,input[type=password]:hover{border-bottom: 1px solid #808080;
+border-left: 1px solid #808080;
 
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -142,13 +142,13 @@ border-left: 1px solid #33e8ff;
 }
 button[type=submit]{
 	 width:100%;
-	 background:rgb(51, 232, 255);
+	 background:#808080;
 	 outline:none;
 	 color:#000;
 	 margin:31px 0px;
 	 font-size:18px;
 	 font-weight:400;
-     border: 1px solid #33e8ff;
+     border: 1px solid #808080;
      padding:11px 11px;
 	 letter-spacing:1px;
 	 text-transform:uppercase;
@@ -179,9 +179,10 @@ input.checked {
     cursor: pointer;
 }
 .span{font-size:14px;
-         color:#fff;
+         color:#000000;
 	     letter-spacing:1px;
-		text-transform:uppercase;}
+		text-transform:uppercase;
+font-weight: bold;}
 .btnn .for{font-size:14px;
          color:#fff;
 	     letter-spacing:1px;
