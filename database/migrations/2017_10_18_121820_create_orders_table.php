@@ -19,8 +19,10 @@ class CreateOrdersTable extends Migration
     {
         Module::generate("Orders", 'orders', 'tanggal', 'fa-cube', [
             ["tanggal", "Tanggal Order", "Date", false, "", 0, 0, false],
-            ["idBarang", "ID Barang", "Integer", false, "", 1, 5, false],
-            ["jumlah", "Jumlah", "Integer", false, "", 1, 4, false],
+            ["nama_pembeli", "Nama Pembeli", "String", false, "", 0, 256, false],
+            ["alamat", "Alamat", "String", true, "", 0, 256, true],
+            ["no_tlp", "No Tlp", "Integer", true, "", 0, 11, true],
+            ["id_toko", "Id Toko", "Dropdown", false, "", 0, 0, true, "@tokos"],
         ]);
 		
 		/*

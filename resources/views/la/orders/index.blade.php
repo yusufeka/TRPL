@@ -60,8 +60,10 @@
 					
 					{{--
 					@la_input($module, 'tanggal')
-					@la_input($module, 'idBarang')
-					@la_input($module, 'jumlah')
+					@la_input($module, 'nama_pembeli')
+					@la_input($module, 'alamat')
+					@la_input($module, 'no_tlp')
+					@la_input($module, 'id_toko')
 					--}}
 				</div>
 			</div>

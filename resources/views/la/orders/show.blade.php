@@ -108,8 +108,10 @@
 					</div>
 					<div class="panel-body">
 						@la_display($module, 'tanggal')
-						@la_display($module, 'idBarang')
-						@la_display($module, 'jumlah')
+						@la_display($module, 'nama_pembeli')
+						@la_display($module, 'alamat')
+						@la_display($module, 'no_tlp')
+						@la_display($module, 'id_toko')
 					</div>
 				</div>
 			</div>

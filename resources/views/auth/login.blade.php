@@ -29,11 +29,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 
-<h1>Jolly Login Form</h1>
+<h1>Hasyim's Meubel Report</h1>
 
 <div class="main-w3">
     <form action="{{ url('/login') }}" method="post">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {{ csrf_field() }}
         <h2><span class="fa fa-user t-w3" aria-hidden="true"></span></h2>
         <div class="login-w3ls">
             <div class="icons">
@@ -59,7 +59,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 
 <div class="copy">
-    <p>&copy;2017 Jolly Login Form. All Rights Reserved | Design by <a href="http://www.W3Layouts.com" target="_blank">W3Layouts</a>
+    <p>&copy;2017. All Rights Reserved | Design by <a href="" target="_blank">KentusSolution</a>
 </div>
 @include('la.layouts.partials.scripts_auth')
 

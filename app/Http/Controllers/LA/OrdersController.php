@@ -23,7 +23,7 @@ class OrdersController extends Controller
 {
 	public $show_action = true;
 	public $view_col = 'tanggal';
-	public $listing_cols = ['id', 'tanggal', 'idBarang', 'jumlah'];
+	public $listing_cols = ['id', 'tanggal', 'nama_pembeli', 'alamat', 'no_tlp', 'id_toko'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
