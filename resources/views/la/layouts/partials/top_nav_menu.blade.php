@@ -29,4 +29,6 @@
 		</div>
 	</form>
 	@endif
-</div><!-- /.navbar-collapse -->
+</div>
+
+<!-- /.navbar-collapse -->
