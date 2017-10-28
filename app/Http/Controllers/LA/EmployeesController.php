@@ -7,6 +7,10 @@
 namespace App\Http\Controllers\LA;
 
 use App\Http\Controllers\Controller;
+use App\Role;
+use App\User;
+use Dwij\Laraadmin\Helpers\LAHelper;
+use Illuminate\Contracts\Logging\Log;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
@@ -17,7 +21,9 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
+
 use App\Models\Employee;
+use Mail;
 
 class EmployeesController extends Controller
 {
@@ -84,8 +90,35 @@ class EmployeesController extends Controller
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
-			
-			$insert_id = Module::insert("Employees", $request);
+			//generate password
+            $password = LAHelper::gen_password();
+
+			//create Employee bug key role
+            $employee_id = Module::insert("Employees", $request->except('role'));
+			// Create User
+            $user = User::create([
+               'name' => $request->name,
+               'email' => $request->email,
+               'password' => bcrypt($password),
+               'context_id' => $employee_id,
+               'type' => "Employee",
+            ]);
+
+            //update user role
+            $user->detachRole();
+            $role = Role::find($request->role);
+            $user->attachRole($role);
+
+            if(env('MAIL_USERNAME') != null && env('MAIL_USERNAME') != "null" && env('MAIL_USERNAME') !="") {
+                //send mail to User his Password
+                Mail::send('emails.send_login_cred', ['user' => $user, 'password' => $password], function ($m) use ($user){
+                    $m->from('hello@laraadmin.com', 'LaraAdmin');
+                    $m->to($user->email, $user->name)->subject('LaraAdmin - your Login Credentials');
+                });
+            } else{
+                Log::info("User created: username: ".$user->email." Password: ".$password);
+            }
+            //$insert_id = Module::insert("Employees", $request);
 			
 			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
 			
@@ -140,10 +173,14 @@ class EmployeesController extends Controller
 				$module = Module::get('Employees');
 				
 				$module->row = $employee;
-				
+
+				//get user tabel information
+                $user = User::where('context_id', '=', $id)->first0rfail();
+
 				return view('la.employees.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
+                    'user' => $user,
 				])->with('employee', $employee);
 			} else {
 				return view('errors.404', [
@@ -175,8 +212,17 @@ class EmployeesController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Employees", $request, $id);
-			
+			$Employee_id = Module::updateRow("Employees", $request, $id);
+
+			//update user
+            $user = User::where('context_id', $Employee_id)->first();
+            $user->name = $request->name;
+            $user->save;
+			//update user role
+            $user->detechRoles();
+            $role = Role::find($request->role);
+            $user->attachRole($role);
+
 			return redirect()->route(config('laraadmin.adminRoute') . '.employees.index');
 			
 		} else {

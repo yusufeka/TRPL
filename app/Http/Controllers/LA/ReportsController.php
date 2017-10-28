@@ -17,37 +17,37 @@ use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
 
-use App\Models\Laporan;
+use App\Models\Report;
 
-class LaporansController extends Controller
+class ReportsController extends Controller
 {
 	public $show_action = true;
-	public $view_col = 'tanggal';
-	public $listing_cols = ['id', 'tanggal', 'id_toko'];
+	public $view_col = 'id_order';
+	public $listing_cols = ['id', 'id_order', 'id_toko'];
 	
 	public function __construct() {
 		// Field Access of Listing Columns
 		if(\Dwij\Laraadmin\Helpers\LAHelper::laravel_ver() == 5.3) {
 			$this->middleware(function ($request, $next) {
-				$this->listing_cols = ModuleFields::listingColumnAccessScan('Laporans', $this->listing_cols);
+				$this->listing_cols = ModuleFields::listingColumnAccessScan('Reports', $this->listing_cols);
 				return $next($request);
 			});
 		} else {
-			$this->listing_cols = ModuleFields::listingColumnAccessScan('Laporans', $this->listing_cols);
+			$this->listing_cols = ModuleFields::listingColumnAccessScan('Reports', $this->listing_cols);
 		}
 	}
 	
 	/**
-	 * Display a listing of the Laporans.
+	 * Display a listing of the Reports.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index()
 	{
-		$module = Module::get('Laporans');
+		$module = Module::get('Reports');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.laporans.index', [
+			return View('la.reports.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
 				'module' => $module
@@ -58,7 +58,7 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Show the form for creating a new laporan.
+	 * Show the form for creating a new report.
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
@@ -68,16 +68,16 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Store a newly created laporan in database.
+	 * Store a newly created report in database.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
 	public function store(Request $request)
 	{
-		if(Module::hasAccess("Laporans", "create")) {
+		if(Module::hasAccess("Reports", "create")) {
 		
-			$rules = Module::validateRules("Laporans", $request);
+			$rules = Module::validateRules("Reports", $request);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -85,9 +85,9 @@ class LaporansController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
 			
-			$insert_id = Module::insert("Laporans", $request);
+			$insert_id = Module::insert("Reports", $request);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.laporans.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.reports.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -95,30 +95,30 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Display the specified laporan.
+	 * Display the specified report.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function show($id)
 	{
-		if(Module::hasAccess("Laporans", "view")) {
+		if(Module::hasAccess("Reports", "view")) {
 			
-			$laporan = Laporan::find($id);
-			if(isset($laporan->id)) {
-				$module = Module::get('Laporans');
-				$module->row = $laporan;
+			$report = Report::find($id);
+			if(isset($report->id)) {
+				$module = Module::get('Reports');
+				$module->row = $report;
 				
-				return view('la.laporans.show', [
+				return view('la.reports.show', [
 					'module' => $module,
 					'view_col' => $this->view_col,
 					'no_header' => true,
 					'no_padding' => "no-padding"
-				])->with('laporan', $laporan);
+				])->with('report', $report);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("laporan"),
+					'record_name' => ucfirst("report"),
 				]);
 			}
 		} else {
@@ -127,28 +127,28 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Show the form for editing the specified laporan.
+	 * Show the form for editing the specified report.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit($id)
 	{
-		if(Module::hasAccess("Laporans", "edit")) {			
-			$laporan = Laporan::find($id);
-			if(isset($laporan->id)) {	
-				$module = Module::get('Laporans');
+		if(Module::hasAccess("Reports", "edit")) {			
+			$report = Report::find($id);
+			if(isset($report->id)) {	
+				$module = Module::get('Reports');
 				
-				$module->row = $laporan;
+				$module->row = $report;
 				
-				return view('la.laporans.edit', [
+				return view('la.reports.edit', [
 					'module' => $module,
 					'view_col' => $this->view_col,
-				])->with('laporan', $laporan);
+				])->with('report', $report);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
-					'record_name' => ucfirst("laporan"),
+					'record_name' => ucfirst("report"),
 				]);
 			}
 		} else {
@@ -157,7 +157,7 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Update the specified laporan in storage.
+	 * Update the specified report in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @param  int  $id
@@ -165,9 +165,9 @@ class LaporansController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		if(Module::hasAccess("Laporans", "edit")) {
+		if(Module::hasAccess("Reports", "edit")) {
 			
-			$rules = Module::validateRules("Laporans", $request, true);
+			$rules = Module::validateRules("Reports", $request, true);
 			
 			$validator = Validator::make($request->all(), $rules);
 			
@@ -175,9 +175,9 @@ class LaporansController extends Controller
 				return redirect()->back()->withErrors($validator)->withInput();;
 			}
 			
-			$insert_id = Module::updateRow("Laporans", $request, $id);
+			$insert_id = Module::updateRow("Reports", $request, $id);
 			
-			return redirect()->route(config('laraadmin.adminRoute') . '.laporans.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.reports.index');
 			
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
@@ -185,18 +185,18 @@ class LaporansController extends Controller
 	}
 
 	/**
-	 * Remove the specified laporan from storage.
+	 * Remove the specified report from storage.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy($id)
 	{
-		if(Module::hasAccess("Laporans", "delete")) {
-			Laporan::find($id)->delete();
+		if(Module::hasAccess("Reports", "delete")) {
+			Report::find($id)->delete();
 			
 			// Redirecting to index() method
-			return redirect()->route(config('laraadmin.adminRoute') . '.laporans.index');
+			return redirect()->route(config('laraadmin.adminRoute') . '.reports.index');
 		} else {
 			return redirect(config('laraadmin.adminRoute')."/");
 		}
@@ -209,11 +209,11 @@ class LaporansController extends Controller
 	 */
 	public function dtajax()
 	{
-		$values = DB::table('laporans')->select($this->listing_cols)->whereNull('deleted_at');
+		$values = DB::table('reports')->select($this->listing_cols)->whereNull('deleted_at');
 		$out = Datatables::of($values)->make();
 		$data = $out->getData();
 
-		$fields_popup = ModuleFields::getModuleFields('Laporans');
+		$fields_popup = ModuleFields::getModuleFields('Reports');
 		
 		for($i=0; $i < count($data->data); $i++) {
 			for ($j=0; $j < count($this->listing_cols); $j++) { 
@@ -222,7 +222,7 @@ class LaporansController extends Controller
 					$data->data[$i][$j] = ModuleFields::getFieldValue($fields_popup[$col], $data->data[$i][$j]);
 				}
 				if($col == $this->view_col) {
-					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/laporans/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
+					$data->data[$i][$j] = '<a href="'.url(config('laraadmin.adminRoute') . '/reports/'.$data->data[$i][0]).'">'.$data->data[$i][$j].'</a>';
 				}
 				// else if($col == "author") {
 				//    $data->data[$i][$j];
@@ -231,12 +231,12 @@ class LaporansController extends Controller
 			
 			if($this->show_action) {
 				$output = '';
-				if(Module::hasAccess("Laporans", "edit")) {
-					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/laporans/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
+				if(Module::hasAccess("Reports", "edit")) {
+					$output .= '<a href="'.url(config('laraadmin.adminRoute') . '/reports/'.$data->data[$i][0].'/edit').'" class="btn btn-warning btn-xs" style="display:inline;padding:2px 5px 3px 5px;"><i class="fa fa-edit"></i></a>';
 				}
 				
-				if(Module::hasAccess("Laporans", "delete")) {
-					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.laporans.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
+				if(Module::hasAccess("Reports", "delete")) {
+					$output .= Form::open(['route' => [config('laraadmin.adminRoute') . '.reports.destroy', $data->data[$i][0]], 'method' => 'delete', 'style'=>'display:inline']);
 					$output .= ' <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-times"></i></button>';
 					$output .= Form::close();
 				}

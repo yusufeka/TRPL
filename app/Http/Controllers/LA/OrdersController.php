@@ -16,8 +16,8 @@ use Datatables;
 use Collective\Html\FormFacade as Form;
 use Dwij\Laraadmin\Models\Module;
 use Dwij\Laraadmin\Models\ModuleFields;
-
 use App\Models\Order;
+use App\Models\Report;
 
 class OrdersController extends Controller
 {
@@ -84,9 +84,15 @@ class OrdersController extends Controller
 			if ($validator->fails()) {
 				return redirect()->back()->withErrors($validator)->withInput();
 			}
-			
+
 			$insert_id = Module::insert("Orders", $request);
-			
+			$order_id = Order::orderBy('id','dsc')->first();
+
+			Report::create([
+                'id_order' => $order_id->id,
+                'id_toko' => $request->id_toko
+            ]);
+
 			return redirect()->route(config('laraadmin.adminRoute') . '.orders.index');
 			
 		} else {

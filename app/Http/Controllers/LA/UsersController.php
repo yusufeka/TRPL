@@ -21,7 +21,7 @@ use App\User;
 
 class UsersController extends Controller
 {
-	public $show_action = false;
+	public $show_action = true;
 	public $view_col = 'name';
 	public $listing_cols = ['id', 'name', 'context_id', 'email', 'type'];
 	
@@ -47,11 +47,12 @@ class UsersController extends Controller
 		$module = Module::get('Users');
 		
 		if(Module::hasAccess($module->id)) {
-			return View('la.users.index', [
+			return view('la.users.index', [
 				'show_actions' => $this->show_action,
 				'listing_cols' => $this->listing_cols,
-				'module' => $module
+				'module' => $module,
 			]);
+
 		} else {
             return redirect(config('laraadmin.adminRoute')."/");
         }
@@ -68,11 +69,14 @@ class UsersController extends Controller
 		if(Module::hasAccess("Users", "view")) {
 			$user = User::findOrFail($id);
 			if(isset($user->id)) {
-				if($user['type'] == "Employee") {
-					return redirect(config('laraadmin.adminRoute') . '/employees/'.$user->id);
-				} else if($user['type'] == "Client") {
-					return redirect(config('laraadmin.adminRoute') . '/clients/'.$user->id);
-				}
+				$module = Module::get('Users');
+				$module->row = $user;
+				return view('la.users.show', [
+				 'module' => $module,
+                 'view_col' =>$this->view_col,
+                 'no_header'=> true,
+                 'no_padding' => "no-padding"
+                ])->with('user', $user);
 			} else {
 				return view('errors.404', [
 					'record_id' => $id,
