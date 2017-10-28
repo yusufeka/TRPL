@@ -76,6 +76,19 @@
 					@la_input($module, 'id_toko')
 					@la_input($module, 'id_jabatan')
 					--}}
+					<div class="form-group">
+						<label for="role">role* :</label>
+						<select class="form-control" required="1" data-placeholder="select role" rel="select2" name="role">
+							<?php $roles = App\role::all()?>
+							@foreach($roles as $role)
+								@if($role->id != 1)
+										<option value="{{ $role->id }}}">{{ $role->name }}</option>
+								@endif
+								@endforeach
+
+						</select>
+
+					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
