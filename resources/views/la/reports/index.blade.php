@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
-@section("contentheader_title", "Laporans")
-@section("contentheader_description", "Laporans listing")
-@section("section", "Laporans")
+@section("contentheader_title", "Reports")
+@section("contentheader_description", "Reports listing")
+@section("section", "Reports")
 @section("sub_section", "Listing")
-@section("htmlheader_title", "Laporans Listing")
+@section("htmlheader_title", "Reports Listing")
 
 @section("headerElems")
-@la_access("Laporans", "create")
-	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Laporan</button>
+@la_access("Reports", "create")
+	<button class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#AddModal">Add Report</button>
 @endla_access
 @endsection
 
@@ -45,21 +45,21 @@
 	</div>
 </div>
 
-@la_access("Laporans", "create")
+@la_access("Reports", "create")
 <div class="modal fade" id="AddModal" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Add Laporan</h4>
+				<h4 class="modal-title" id="myModalLabel">Add Report</h4>
 			</div>
-			{!! Form::open(['action' => 'LA\LaporansController@store', 'id' => 'laporan-add-form']) !!}
+			{!! Form::open(['action' => 'LA\ReportsController@store', 'id' => 'report-add-form']) !!}
 			<div class="modal-body">
 				<div class="box-body">
                     @la_form($module)
 					
 					{{--
-					@la_input($module, 'tanggal')
+					@la_input($module, 'id_order')
 					@la_input($module, 'id_toko')
 					--}}
 				</div>
@@ -87,7 +87,7 @@ $(function () {
 	$("#example1").DataTable({
 		processing: true,
         serverSide: true,
-        ajax: "{{ url(config('laraadmin.adminRoute') . '/laporan_dt_ajax') }}",
+        ajax: "{{ url(config('laraadmin.adminRoute') . '/report_dt_ajax') }}",
 		language: {
 			lengthMenu: "_MENU_",
 			search: "_INPUT_",
@@ -97,7 +97,7 @@ $(function () {
 		columnDefs: [ { orderable: false, targets: [-1] }],
 		@endif
 	});
-	$("#laporan-add-form").validate({
+	$("#report-add-form").validate({
 		
 	});
 });

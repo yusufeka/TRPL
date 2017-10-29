@@ -130,11 +130,12 @@ Route::group(['as' => $as, 'middleware' => ['auth', 'permission:ADMIN_PANEL']], 
 	Route::resource(config('laraadmin.adminRoute') . '/barang_promos', 'LA\Barang_PromosController');
 	Route::get(config('laraadmin.adminRoute') . '/barang_promo_dt_ajax', 'LA\Barang_PromosController@dtajax');
 
-	/* ================== Laporans ================== */
-	Route::resource(config('laraadmin.adminRoute') . '/laporans', 'LA\LaporansController');
-	Route::get(config('laraadmin.adminRoute') . '/laporan_dt_ajax', 'LA\LaporansController@dtajax');
 
 	/* ================== Detail_Orders ================== */
 	Route::resource(config('laraadmin.adminRoute') . '/detail_orders', 'LA\Detail_OrdersController');
 	Route::get(config('laraadmin.adminRoute') . '/detail_order_dt_ajax', 'LA\Detail_OrdersController@dtajax');
+
+	/* ================== Reports ================== */
+	Route::resource(config('laraadmin.adminRoute') . '/reports', 'LA\ReportsController');
+	Route::get(config('laraadmin.adminRoute') . '/report_dt_ajax', 'LA\ReportsController@dtajax');
 });

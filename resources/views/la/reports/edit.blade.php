@@ -1,14 +1,14 @@
 @extends("la.layouts.app")
 
 @section("contentheader_title")
-	<a href="{{ url(config('laraadmin.adminRoute') . '/laporans') }}">Laporan</a> :
+	<a href="{{ url(config('laraadmin.adminRoute') . '/reports') }}">Report</a> :
 @endsection
-@section("contentheader_description", $laporan->$view_col)
-@section("section", "Laporans")
-@section("section_url", url(config('laraadmin.adminRoute') . '/laporans'))
+@section("contentheader_description", $report->$view_col)
+@section("section", "Reports")
+@section("section_url", url(config('laraadmin.adminRoute') . '/reports'))
 @section("sub_section", "Edit")
 
-@section("htmlheader_title", "Laporans Edit : ".$laporan->$view_col)
+@section("htmlheader_title", "Reports Edit : ".$report->$view_col)
 
 @section("main-content")
 
@@ -29,16 +29,16 @@
 	<div class="box-body">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
-				{!! Form::model($laporan, ['route' => [config('laraadmin.adminRoute') . '.laporans.update', $laporan->id ], 'method'=>'PUT', 'id' => 'laporan-edit-form']) !!}
+				{!! Form::model($report, ['route' => [config('laraadmin.adminRoute') . '.reports.update', $report->id ], 'method'=>'PUT', 'id' => 'report-edit-form']) !!}
 					@la_form($module)
 					
 					{{--
-					@la_input($module, 'tanggal')
+					@la_input($module, 'id_order')
 					@la_input($module, 'id_toko')
 					--}}
                     <br>
 					<div class="form-group">
-						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/laporans') }}">Cancel</a></button>
+						{!! Form::submit( 'Update', ['class'=>'btn btn-success']) !!} <button class="btn btn-default pull-right"><a href="{{ url(config('laraadmin.adminRoute') . '/reports') }}">Cancel</a></button>
 					</div>
 				{!! Form::close() !!}
 			</div>
@@ -51,7 +51,7 @@
 @push('scripts')
 <script>
 $(function () {
-	$("#laporan-edit-form").validate({
+	$("#report-edit-form").validate({
 		
 	});
 });
